@@ -1,0 +1,87 @@
+
+<html>
+  <head>
+    <title>Sample Backbone Contacts</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <style media="screen">
+      .panel-heading {
+        height: 58px;
+      }
+      .panel-body {
+        height: 220px;
+      }
+    </style>
+  </head>
+<body>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">A simple Contact Manager</h1>
+          <div class="row app">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js" charset="utf-8"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage.js" type="text/javascript"></script>
+    <script type="text/template" id="new-contact">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        </div>
+        <div class="panel-body">
+          <h1 class="text-center">
+            <a href="#" class="new-contact">
+              <span class="glyphicon glyphicon-plus"></span>
+              <br>Add New Contact
+            </a>
+          </h1>
+        </div>
+      </div>
+    </script>
+    <script type="text/template" id="contact">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%- name %> <small class="text-right"><a href="#" class="edit">Edit <span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;<a href="#" class="delete">Delete <span class="glyphicon glyphicon-trash"></span></a></small></h3>
+        </div>
+        <div class="panel-body">
+          <p><span class="glyphicon glyphicon-phone"></span> <a href="tel:<%- phone %>"><%- phone %></a></p>
+          <p><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:<%- email %>"><%- email %></a></p>
+          <p>
+            <h4>Address:</h4>
+            <address>
+              <%- address %>
+            </address>
+          </p>
+        </div>
+      </div>
+    </script>
+    <script type="text/template" id="contact-form">
+      <form action="form-inline">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><input type="text" name="name" placeholder="Name" class="form-control" value="<%- name || "" %>"></h3>
+          </div>
+          <div class="panel-body">
+            <p><input type="text" class="form-control" name="phone" placeholder="Phone number" value="<%= typeof(phone)!='undefined' ? phone : '' %>"</p>
+            <p><input type="text" class="form-control" name="email" placeholder="Email address" value="<%= typeof(email)!='undefined' ? email : '' %>"></p>
+            <p>
+              <textarea name="address" class="form-control" placeholder="Enter address"rows="2" cols="25"><%= typeof(address)!=="undefined" ? address : "" %></textarea>
+            </p>
+            <input type="submit" value="Add" class="btn btn-primary pull-right">
+            <input type="button" value="Cancel" class="cancel btn btn-danger pull-right">
+          </div>
+        </div>
+      </form>
+    </script>
+    <script src="/js/app.js" charset="utf-8"></script>
+  </body>
+</html>
